@@ -23,9 +23,14 @@ a:hover {
 /*
  * Base structure
  */
-
 html,
 body {
+  background: url(../img/cover.jpg) no-repeat center center fixed !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+
   height: 100%;
   background-color: #333;
 }
