@@ -1,154 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>DevMine</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="DevMine team">
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
-    <link href="lib/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/cover.css" rel="stylesheet">
+<head>
+  <title>DevMine</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="DevMine team">
+  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link href="lib/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/cover.css" rel="stylesheet">
+  
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="lib/assets/js/html5shiv.js"></script>
-        <script src="lib/assets/js/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <div class="masthead clearfix">
-            <div class="pagination">
-              <h3 class="masthead-brand">DevMine</h3>
-            </div>
+  <script src="lib/assets/js/jquery-2.1.0.min.js"></script>
+  <script src="lib/assets/js/bootstrap.min.js"></script>
+  <script src="lib/assets/js/bootstrap-slider.js"></script>
+	<!--script src="lib/assets/js/bootstrap.touchspin.js"></script-->
+	<script src="lib/assets/js/modified_bootstrap.touchspin.js"></script>
+	<script src="libraries/prettify/prettify.js"></script>
+	<script src="assets/js/devmine.js"></script>
+	
+  <!--link href="libraries/demo.css" rel="stylesheet" type="text/css" media="all"-->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="lib/assets/js/html5shiv.js"></script>
+      <script src="lib/assets/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="masthead clearfix">
+          <div class="pagination">
+            <h3 class="masthead-brand">DevMine</h3>
           </div>
+        </div>
 
-          <div class="inner cover">
-          <h1 class="cover-heading">Find the right developer</h1>
+        <div class="inner cover">
+        <h1 class="cover-heading">Find the right developer</h1>
 
-          <p class="lead">
-            Are you looking for a skilled developer? Are you tired of reading resumé after resumé? DevMine will let you find the developer that matches your needs.
-          </p>
+        <p class="lead">
+          Are you looking for a skilled developer? Are you tired of reading resumé after resumé? DevMine will let you find the developer that matches your needs.
+        </p>
 
-          <div class="row">
-            <form role="form">
-              <div class="col-6 col-sm-6 col-lg-4">
-                <h2>Languages</h2>
+        <div class="row">
+          <form role="form">
+            <div class="col-6 col-sm-6 col-lg-4">
+              <h2>Languages</h2>
 
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Option one is this and that
-                    </label>
-                </div>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
+							<input id="demo4" type="text" value="" name="languages" class="input-sm">      
+								<script>
+									$("input[name=languages]").TouchSpin({
+										postfix: "add",
+										postfix_extraclass: "btn btn-default",
+										items: languages
+									});
+								</script>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="Java">
                     Option one is this and that
                   </label>
-                </div>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Option one is this and that
-                  </label>
-                </div>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox">
-                      Check me out
-                  </label>
-                </div>
-              </div><!--/span-->
-
-              <div class="col-6 col-sm-6 col-lg-4">
-                <h2>Options</h2>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Option one is this and that
-                  </label>
-                </div>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Option one is this and that
-                  </label>
-                </div>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Option one is this and that
-                  </label>
-                </div>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Check me out
-                  </label>
-                </div>
-              </div><!--/span-->
-
-              <div class="col-6 col-sm-6 col-lg-4">
-                <h2>Options</h2>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Option one is this and that
-                  </label>
-                </div>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Option one is this and that
-                  </label>
-                </div>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Option one is this and that
-                  </label>
-                </div>
-
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                      Check me out
-                  </label>
-                </div>
-              </div><!--/span-->
-
-              <div style="text-align:center">
-                <button type="submit" class="btn btn-default">Submit</button>
               </div>
-            </form>
-          </div><!--/row-->
-        </div><!--/span-->
 
-        <div class="mastfoot">
-          <div class="col-6 col-sm-12">
-            <div class="inner center">
-              <p>&copy; <a href="https://github.com/DevMine">DevMine</a> 2014</p>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="C">
+                  Option one is this and that
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="Python">
+                    Option one is this and that
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="Haskell">
+                    Check me out
+                </label>
+              </div>
+							
+            </div><!--/span-->
+
+            <div class="col-6 col-sm-6 col-lg-4">
+              <h2>Paradigms</h2>
+							<input id="demo4" type="text" value="" name="paradigms" class="input-sm">             
+								<script>
+									$("input[name=paradigms]").TouchSpin({
+										postfix: "add",
+										postfix_extraclass: "btn btn-default",
+										items: paradigms
+									});
+								</script>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                    Option one is this and that
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                    Option one is this and that
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                    Option one is this and that
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                    Check me out
+                </label>
+              </div>
+            </div><!--/span-->
+
+            <div class="col-6 col-sm-6 col-lg-4">
+              <h2>Options</h2>
+							<input id="demo4" type="text" value="" name="demo4" class="input-sm">             
+								<script>
+									$("input[name='demo4']").TouchSpin({
+										postfix: "add",
+										postfix_extraclass: "btn btn-default"
+									});
+								</script>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                    Option one is this and that
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                    Option one is this and that
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                    Option one is this and that
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                    Check me out klipitout
+                </label>
+              </div>
+            </div><!--/span-->
+            
+            <div style="text-align:center">
+              <button type="submit" class="btn btn-default">Submit</button>
             </div>
+          </form>
+        </div><!--/row-->
+      </div><!--/span-->
+
+      <div class="mastfoot">
+        <div class="col-6 col-sm-12">
+          <div class="inner center">
+            <p>&copy; <a href="https://github.com/DevMine">DevMine</a> 2014</p>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="lib/assets/js/jquery-2.1.0.min.js"></script>
-    <script src="lib/assets/js/bootstrap.min.js"></script>
-  </body>
+</body>
 </html>
