@@ -49,88 +49,51 @@
 
         <div class="row">
           <form role="form">
-            <div class="col-6 col-sm-6 col-lg-4">
+            <div class="col-6 col-sm-6 col-lg-6">
             
               <h2>Languages</h2>
 							<div class="input-group">
-								<input id="spin" type="text" value="" name="languages" class="form-control">
+								<input id="spin-lang" type="text" value="" name="languages" class="form-control">
 									<div class="input-group-btn">
 										<button id="add-lang" type="button" class="btn btn-default">Add</button>
 									</div>
 							</div>
 							<table id="tab-lang"></table>
-							<script>
-								$("input[name=languages]").TouchSpin({
-									items: languages
-								});
-								var i = 0;
-								$('button#add-lang').on('click', function(){
-									var lang_value = $('#spin').val();
-									var slider = document.createElement('script');
-									slider.text = "$('#slid"+i+"').slider({formater: "+
-																	"function(value){return 'Current value: '+value;}});"
-									$('#tab-lang').append('<tr><td>'+
-										lang_value+
-										'</td><td id="sl'+i+'"><input type="text" class="span2" value="4" id="slid'+i+'" style="">'+
-										'</td></tr>');
-										$('#sl'+i+'')[0].appendChild(slider);
-										i++;										
-								});
-							</script>
-								
-							<!--input type="text" class="span2" value="4" id="sl1" style="">
-								<script>
-					        $('#sl1').slider({
-										formater: function(value) {
-											return 'Current value: '+value;
-										}
-									});
-								</script-->
 
             </div><!--/span-->
 
-            <div class="col-6 col-sm-6 col-lg-4">
+            <div class="col-6 col-sm-6 col-lg-6">
               <h2>Paradigms</h2>
 							<div class="input-group">
-								<input id="spin" type="text" value="" name="paradigms" class="form-control">
+								<input id="spin-pdgm" type="text" value="" name="paradigms" class="form-control">
 									<div class="input-group-btn">
 										<button id="add-pdgm" type="button" class="btn btn-default">Add</button>
 									</div>
-							</div>  
-							<script>
-								$("input[name=paradigms]").TouchSpin({
-									items: paradigms
-								});
-								$('button#add-pdgm').on('click', function(){
-									alert('button pressed');
-								});
-							</script>
+							</div>
+							<table id="tab-pdgm"></table>
 								
             </div><!--/span-->
 
-            <div class="col-6 col-sm-6 col-lg-4">
+            <div class="col-6 col-sm-6 col-lg-6">
               <h2>Options</h2>
 							<div class="input-group">
-								<input id="spin" type="text" value="" name="options" class="form-control">
+								<input id="spin-optn" type="text" value="" name="options" class="form-control">
 									<div class="input-group-btn">
 										<button id="add-optn" type="button" class="btn btn-default">Add</button>
 									</div>
 							</div>  
-							<script>
-								$("input[name=options]").TouchSpin({
-									items: options
-								});
-								$('button#add-optn').on('click', function(){
-									alert('button pressed');
-								});
-							</script>
-
+							<table id="tab-optn"></table>
+							
             </div><!--/span-->
             
-            <div style="text-align:center">
-              <button type="submit" class="btn btn-default">Submit</button>
-            </div>
-          </form>
+            <div class="col-6 col-sm-6 col-lg-6">
+            	<div class="inner center">
+              	<button type="submit" class="btn btn-default">Submit</button>
+							</div>
+							
+						</div><!--/span-->
+
+					</form>          
         </div><!--/row-->
       </div><!--/span-->
 
