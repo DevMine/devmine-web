@@ -63,16 +63,19 @@
 								$("input[name=languages]").TouchSpin({
 									items: languages
 								});
+								var i = 0;
 								$('button#add-lang').on('click', function(){
 									var lang_value = $('#spin').val();
 									var slider = document.createElement('script');
-									slider.text = "$('#sl1').slider({formater: function(value){return 'Current value: '+value;}});"
+									slider.text = "$('#slid"+i+"').slider({formater: function(value){return 'Current value: '+value;}});"
 									$('#tab-lang').append('<tr><td>'+
 										lang_value+
-										'</td><td id="sli"><input type="text" class="span2" value="4" id="sl1" style="">'+
+										'</td><td id="sl'+i+'"><input type="text" class="span2" value="4" id="slid'+i+'" style="">'+
 										'</td></tr>');
-										$('#sli')[0].appendChild(slider);
-										//alert(lang_value);
+
+										$('#sl'+i+'')[0].appendChild(slider);
+										alert('i = '+(i++));										
+										
 								});
 							</script>
 								
