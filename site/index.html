@@ -7,17 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="DevMine team">
   <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link href="lib/assets/css/slider.css" rel="stylesheet">
+  <link href="lib/assets/less/slider.less" rel="text/css">
   <link href="lib/assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/cover.css" rel="stylesheet">
   
+  <link href="assets/css/cover.css" rel="stylesheet">
 
   <script src="lib/assets/js/jquery-2.1.0.min.js"></script>
   <script src="lib/assets/js/bootstrap.min.js"></script>
   <script src="lib/assets/js/bootstrap-slider.js"></script>
 	<!--script src="lib/assets/js/bootstrap.touchspin.js"></script-->
 	<script src="lib/assets/js/modified_bootstrap.touchspin.js"></script>
-	<script src="libraries/prettify/prettify.js"></script>
+	<script src="lib/assets/js/prettify.js"></script>
 	<script src="assets/js/devmine.js"></script>
+	
 	
   <!--link href="libraries/demo.css" rel="stylesheet" type="text/css" media="all"-->
 
@@ -47,121 +50,79 @@
         <div class="row">
           <form role="form">
             <div class="col-6 col-sm-6 col-lg-4">
+            
               <h2>Languages</h2>
-
-							<input id="demo4" type="text" value="" name="languages" class="input-sm">      
+							<div class="input-group">
+								<input id="spin" type="text" value="" name="languages" class="form-control">
+									<div class="input-group-btn">
+										<button id="add-lang" type="button" class="btn btn-default">Add</button>
+									</div>
+							</div>
+							<table id="tab-lang"></table>
+							<script>
+								$("input[name=languages]").TouchSpin({
+									items: languages
+								});
+								$('button#add-lang').on('click', function(){
+									var lang_value = $('#spin').val();
+									var slider = document.createElement('script');
+									slider.text = "$('#sl1').slider({formater: function(value){return 'Current value: '+value;}});"
+									$('#tab-lang').append('<tr><td>'+
+										lang_value+
+										'</td><td id="sli"><input type="text" class="span2" value="4" id="sl1" style="">'+
+										'</td></tr>');
+										$('#sli')[0].appendChild(slider);
+										//alert(lang_value);
+								});
+							</script>
+								
+							<!--input type="text" class="span2" value="4" id="sl1" style="">
 								<script>
-									$("input[name=languages]").TouchSpin({
-										postfix: "add",
-										postfix_extraclass: "btn btn-default",
-										items: languages
+					        $('#sl1').slider({
+										formater: function(value) {
+											return 'Current value: '+value;
+										}
 									});
-								</script>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="Java">
-                    Option one is this and that
-                  </label>
-              </div>
+								</script-->
 
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="C">
-                  Option one is this and that
-                </label>
-              </div>
-
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="Python">
-                    Option one is this and that
-                </label>
-              </div>
-
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="Haskell">
-                    Check me out
-                </label>
-              </div>
-							
             </div><!--/span-->
 
             <div class="col-6 col-sm-6 col-lg-4">
               <h2>Paradigms</h2>
-							<input id="demo4" type="text" value="" name="paradigms" class="input-sm">             
-								<script>
-									$("input[name=paradigms]").TouchSpin({
-										postfix: "add",
-										postfix_extraclass: "btn btn-default",
-										items: paradigms
-									});
-								</script>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                    Option one is this and that
-                </label>
-              </div>
-
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                    Option one is this and that
-                </label>
-              </div>
-
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                    Option one is this and that
-                </label>
-              </div>
-
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                    Check me out
-                </label>
-              </div>
+							<div class="input-group">
+								<input id="spin" type="text" value="" name="paradigms" class="form-control">
+									<div class="input-group-btn">
+										<button id="add-pdgm" type="button" class="btn btn-default">Add</button>
+									</div>
+							</div>  
+							<script>
+								$("input[name=paradigms]").TouchSpin({
+									items: paradigms
+								});
+								$('button#add-pdgm').on('click', function(){
+									alert('button pressed');
+								});
+							</script>
+								
             </div><!--/span-->
 
             <div class="col-6 col-sm-6 col-lg-4">
               <h2>Options</h2>
-							<input id="demo4" type="text" value="" name="demo4" class="input-sm">             
-								<script>
-									$("input[name='demo4']").TouchSpin({
-										postfix: "add",
-										postfix_extraclass: "btn btn-default"
-									});
-								</script>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                    Option one is this and that
-                </label>
-              </div>
+							<div class="input-group">
+								<input id="spin" type="text" value="" name="options" class="form-control">
+									<div class="input-group-btn">
+										<button id="add-optn" type="button" class="btn btn-default">Add</button>
+									</div>
+							</div>  
+							<script>
+								$("input[name=options]").TouchSpin({
+									items: options
+								});
+								$('button#add-optn').on('click', function(){
+									alert('button pressed');
+								});
+							</script>
 
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                    Option one is this and that
-                </label>
-              </div>
-
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                    Option one is this and that
-                </label>
-              </div>
-
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                    Check me out klipitout
-                </label>
-              </div>
             </div><!--/span-->
             
             <div style="text-align:center">
