@@ -67,15 +67,14 @@
 								$('button#add-lang').on('click', function(){
 									var lang_value = $('#spin').val();
 									var slider = document.createElement('script');
-									slider.text = "$('#slid"+i+"').slider({formater: function(value){return 'Current value: '+value;}});"
+									slider.text = "$('#slid"+i+"').slider({formater: "+
+																	"function(value){return 'Current value: '+value;}});"
 									$('#tab-lang').append('<tr><td>'+
 										lang_value+
 										'</td><td id="sl'+i+'"><input type="text" class="span2" value="4" id="slid'+i+'" style="">'+
 										'</td></tr>');
-
 										$('#sl'+i+'')[0].appendChild(slider);
-										alert('i = '+(i++));										
-										
+										i++;										
 								});
 							</script>
 								
