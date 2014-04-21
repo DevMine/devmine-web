@@ -21,6 +21,10 @@ $(function() {
 	
 	function add_slider(e) {
 		var $spin_value = $(e.data.id1).val();
+		if ($spin_value == '') {
+			alert('nothing selected');
+			return;
+		}
 		var slider_id = e.data.id2;
 		var $table_id = $(e.data.id3);
 		var input_id = e.data.id4;
