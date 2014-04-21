@@ -25,16 +25,17 @@ $(function() {
 		var $table_id = $(e.data.id3);
 		var input_id = e.data.id4;
 		var slider = document.createElement('script');
-		slider.text = "$('"+slider_id+j+"').slider({formater: "+
+		slider.text = "$('"+slider_id+i+"').slider({formater: "+
 									"function(value){return 'Current value: '+value;}});";
 		$table_id.append('<tr><td>'+
-												$spin_value+
-												'</td><td id="sl'+j+
-												'"><input type="text" class="span2" value="4" id="'+input_id+j+
-												'" style="">'+
-												'</td></tr>');
-		$('#sl'+j+'')[0].appendChild(slider);
-		j++;
+											$spin_value+
+											'</td><td id="sl'+i+'">'+
+											'<input type="text" class="span2" value="4" id="'+
+											input_id+i+
+											'" style="">'+
+											'</td></tr>');
+		$('#sl'+i+'')[0].appendChild(slider);
+		i++;
 	}
 	
 	/* languages */
@@ -42,7 +43,6 @@ $(function() {
 		items: languages
 	});
 	var i = 0;
-	var j = 0;
 	$('button#add-lang').click({
 		id1:'#spin-lang', id2:'#slid-ln', id3:'#tab-lang', id4:'slid-ln'
 	}, add_slider);
