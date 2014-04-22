@@ -41,7 +41,23 @@ $(function() {
 		$('#sl'+i+'')[0].appendChild(slider);
 		i++;
 	}
-	
+
+	$.fn.serializeObject = function() {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+			if (o[this.name] !== undefined) {
+				if (!o[this.name].push) {
+					o[this.name] = [o[this.name]];
+				}
+				o[this.name].push(this.value || '');
+				} else {
+					o[this.name] = this.value || '';
+			}
+		});
+		return o;
+	};
+
 	/* languages */
 	$("input[name=languages]").TouchSpin({
 		items: languages
@@ -66,5 +82,17 @@ $(function() {
 	$('button#add-optn').click({
 		id1:'#spin-optn', id2:'#slid-op', id3:'#tab-optn', id4:'slid-op'
 	}, add_slider);
-		
+
+	/* submit */
+	$('form').submit(function() {
+  	$('#result').text(JSON.stringify($('form').serializeObject()));
+    	return false;
+		});
+
 });
+
+
+
+
+
+
