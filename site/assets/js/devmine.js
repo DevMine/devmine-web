@@ -29,8 +29,7 @@ $(function() {
 		var $table_id = $(e.data.id3);
 		var input_id = e.data.id4;
 		var slider = document.createElement('script');
-		slider.text = "$('"+slider_id+i+"').slider({formater: "+
-									"function(value){return 'Current value: '+value;}});";
+		slider.text = "$('"+slider_id+i+"').slider({tooltip:'show'});";
 		$table_id.append('<tr><td class="feat-left">'+
 											$spin_value+
 											'</td><td class="slid-right" id="sl'+i+'">'+
