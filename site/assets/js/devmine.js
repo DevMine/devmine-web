@@ -42,6 +42,17 @@ $(function() {
 		i++;
 	}
 
+	function remove_slider(e) {
+		var $table_id = $(e.data.id);
+		$table_id.each(function(){
+    if($('tbody', this).length > 0){
+        $('tbody tr:last', this).remove();
+    }else {
+        $('tr:last', this).remove();
+    }
+});
+	}
+
 	$.fn.serializeObject = function() {
     var o = {};
     var a = this.serializeArray();
@@ -58,14 +69,16 @@ $(function() {
 		return o;
 	};
 
+	var i = 0;
+
 	/* languages */
 	$("input[name=languages]").TouchSpin({
 		items: languages
 	});
-	var i = 0;
 	$('button#add-lang').click({
 		id1:'#spin-lang', id2:'#slid-ln', id3:'#tab-lang', id4:'slid-ln'
 	}, add_slider);
+	$('button#rm-lang').click({id:'#tab-lang'}, remove_slider);
 	
 	/* paradigms */
 	$("input[name=paradigms]").TouchSpin({
@@ -74,6 +87,7 @@ $(function() {
 	$('button#add-pdgm').click({
 			id1:'#spin-pdgm', id2:'#slid-pm', id3:'#tab-pdgm', id4:'slid-pm'
 		}, add_slider);
+	$('button#rm-pdgm').click({id:'#tab-pdgm'}, remove_slider);
 
 	/* options */
 	$("input[name=options]").TouchSpin({
@@ -82,6 +96,7 @@ $(function() {
 	$('button#add-optn').click({
 		id1:'#spin-optn', id2:'#slid-op', id3:'#tab-optn', id4:'slid-op'
 	}, add_slider);
+	$('button#rm-optn').click({id:'#tab-optn'}, remove_slider);
 
 	/* submit */
 	$('form').submit(function() {
