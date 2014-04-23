@@ -43,14 +43,13 @@ $(function() {
 	}
 
 	function remove_slider(e) {
-		var $table_id = $(e.data.id);
-		$table_id.each(function(){
-    if($('tbody', this).length > 0){
+		$(e.data.id).each(function() {
+    	if ($('tbody', this).length > 0) {
         $('tbody tr:last', this).remove();
-    }else {
+			} else {
         $('tr:last', this).remove();
-    }
-});
+			}
+		});
 	}
 
 	$.fn.serializeObject = function() {
