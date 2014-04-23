@@ -18,7 +18,7 @@ options[1] = "option 2";
 options[2] = "option 3";
 
 $(function() {
-	
+
 	function add_slider(e) {
 		var $spin_value = $(e.data.id1).val();
 		if ($spin_value == '') {
@@ -31,9 +31,9 @@ $(function() {
 		var slider = document.createElement('script');
 		slider.text = "$('"+slider_id+i+"').slider({formater: "+
 									"function(value){return 'Current value: '+value;}});";
-		$table_id.append('<tr><td>'+
+		$table_id.append('<tr><td class="feat-left">'+
 											$spin_value+
-											'</td><td id="sl'+i+'">'+
+											'</td><td class="slid-right" id="sl'+i+'">'+
 											'<input type="text" class="span2" value="4" id="'+
 											input_id+i+
 											'" style="">'+
@@ -86,8 +86,8 @@ $(function() {
 	/* submit */
 	$('form').submit(function() {
   	$('#result').text(JSON.stringify($('form').serializeObject()));
-    	return false;
-		});
+			return false;
+	});
 
 });
 
