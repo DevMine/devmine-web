@@ -64,8 +64,10 @@ $(function() {
 	function remove_row(e) {
 		$(e.data.id).each(function() {
 			if ($('tbody', this).length > 0) {
+				delete result_dic[$('tr:last').attr('id')];
 				$('tbody tr:last', this).remove();
 			} else {
+				delete result_dic[$('tr:last').attr('id')];
 				$('tr:last', this).remove();
 			}
 		});
