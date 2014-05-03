@@ -52,14 +52,12 @@ $(function() {
 											'" style="">'+
 											'</td></tr>');
 		$('#sl'+i+'')[0].appendChild(slider_script);
-		
 
-		
 		row_dico[$spin_value] = 5;
 		result_dic[''+i] = row_dico;
 
 		$(''+slider_id+i).slider().on('slideStop', makeSliderHandler(i, $spin_value));
-				
+
 		i++;
 	}
 
@@ -109,8 +107,6 @@ $(function() {
 		return toReturn;
 	}
 
-
-
 	/* languages */
 	$("input[name=languages]").TouchSpin({
 		items: languages
@@ -139,21 +135,7 @@ $(function() {
 	$('button#rm-optn').click({id:'#tab-optn'}, remove_row);
 
 	/* submit */
-/*
-  $('form').submit(function() {
-      $('#result').text(JSON.stringify($('form').serializeObject()));
-      return false;
-  });
-*/
 	$('form').submit(function() {
-		/*
-		var result_string = "";
-		for (key in result_dic) {
-			result_string += JSON.stringify(result_dic[key]);
-			console.info(result_string);
-		}
-		console.info(result_string);
-		*/
 		$('#result').text(JSON.stringify(flattenObject(result_dic)));
 		return false;
 	});
@@ -161,9 +143,6 @@ $(function() {
 
 });
 
-/*
-	var $slider_value = $('#'+i+' .tooltip-inner').val();
-*/
 
 
 
