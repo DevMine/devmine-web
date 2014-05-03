@@ -22,52 +22,52 @@ options[2] = "option 3";
 
 $(function() {
 	var i = 0;
-	var result_dic = {};
+	var resultDict = {};
 
-	function makeSliderHandler(idx, spin_value) {
+	function makeSliderHandler(idx, spinValue) {
 		return function(ev) {
-			var $slider_value = ev.value;
-			result_dic[''+idx][spin_value] = $slider_value;
+			var $sliderValue = ev.value;
+			resultDict[''+idx][spinValue] = $sliderValue;
 		};
 	}
 
-	function add_row(e) {
-		var $spin_value = $(e.data.id1).val();
-		if ($spin_value == '') {
+	function addRow(e) {
+		var $spinValue = $(e.data.id1).val();
+		if ($spinValue == '') {
 			alert('Nothing selected!');
 			return;
 		}
-		var slider_id = e.data.id2;
-		var $table_id = $(e.data.id3);
-		var input_id = e.data.id4;
-		var slider_script = document.createElement('script');
-		var row_dico = {};
+		var sliderId = e.data.id2;
+		var $tableId = $(e.data.id3);
+		var inputId = e.data.id4;
+		var sliderScript = document.createElement('script');
+		var rowDict = {};
 		
-		slider_script.text = "$('"+slider_id+i+"').slider({tooltip:'show'});";
-		$table_id.append('<tr id="'+i+'"><td class="feat-left">'+
-											$spin_value+
+		sliderScript.text = "$('"+sliderId+i+"').slider({tooltip:'show'});";
+		$tableId.append('<tr id="'+i+'"><td class="feat-left">'+
+											$spinValue+
 											'</td><td class="slid-right" id="sl'+i+'">'+
 											'<input type="text" class="span2" value="4" id="'+
-											input_id+i+
+											inputId+i+
 											'" style="">'+
 											'</td></tr>');
-		$('#sl'+i+'')[0].appendChild(slider_script);
+		$('#sl'+i+'')[0].appendChild(sliderScript);
 
-		row_dico[$spin_value] = 5;
-		result_dic[''+i] = row_dico;
+		rowDict[$spinValue] = 5;
+		resultDict[''+i] = rowDict;
 
-		$(''+slider_id+i).slider().on('slideStop', makeSliderHandler(i, $spin_value));
+		$(''+sliderId+i).slider().on('slideStop', makeSliderHandler(i, $spinValue));
 
 		i++;
 	}
 
-	function remove_row(e) {
+	function removeRow(e) {
 		$(e.data.id).each(function() {
 			if ($('tbody', this).length > 0) {
-				delete result_dic[$('tr:last').attr('id')];
+				delete resultDict[$('tr:last').attr('id')];
 				$('tbody tr:last', this).remove();
 			} else {
-				delete result_dic[$('tr:last').attr('id')];
+				delete resultDict[$('tr:last').attr('id')];
 				$('tr:last', this).remove();
 			}
 		});
@@ -115,8 +115,8 @@ $(function() {
 	});
 	$('button#add-lang').click({
 		id1:'#spin-lang', id2:'#slid-ln', id3:'#tab-lang', id4:'slid-ln'
-	}, add_row);
-	$('button#rm-lang').click({id:'#tab-lang'}, remove_row);
+	}, addRow);
+	$('button#rm-lang').click({id:'#tab-lang'}, removeRow);
 	
 	/* paradigms */
 	$("input[name=paradigms]").TouchSpin({
@@ -124,8 +124,8 @@ $(function() {
 	});
 	$('button#add-pdgm').click({
 			id1:'#spin-pdgm', id2:'#slid-pm', id3:'#tab-pdgm', id4:'slid-pm'
-		}, add_row);
-	$('button#rm-pdgm').click({id:'#tab-pdgm'}, remove_row);
+		}, addRow);
+	$('button#rm-pdgm').click({id:'#tab-pdgm'}, removeRow);
 
 	/* options */
 	$("input[name=options]").TouchSpin({
@@ -133,12 +133,12 @@ $(function() {
 	});
 	$('button#add-optn').click({
 		id1:'#spin-optn', id2:'#slid-op', id3:'#tab-optn', id4:'slid-op'
-	}, add_row);
-	$('button#rm-optn').click({id:'#tab-optn'}, remove_row);
+	}, addRow);
+	$('button#rm-optn').click({id:'#tab-optn'}, removeRow);
 
 	/* submit */
 	$('form').submit(function() {
-		$('#result').text(JSON.stringify(flattenObject(result_dic)));
+		$('#result').text(JSON.stringify(flattenObject(resultDict)));
 		return false;
 	});
 
