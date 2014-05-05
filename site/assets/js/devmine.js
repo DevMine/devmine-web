@@ -63,11 +63,12 @@ $(function() {
 
 	function removeRow(e) {
 		$(e.data.id).each(function() {
+			console.info(e.data.id);
 			if ($('tbody', this).length > 0) {
-				delete resultDict[$('tr:last').attr('id')];
+				delete resultDict[$('tbody tr:last', this).attr('id')];
 				$('tbody tr:last', this).remove();
 			} else {
-				delete resultDict[$('tr:last').attr('id')];
+				delete resultDict[$('tr:last', this).attr('id')];
 				$('tr:last', this).remove();
 			}
 		});
