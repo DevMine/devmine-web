@@ -43,7 +43,7 @@ $(function() {
 		var sliderScript = document.createElement('script');
 		var rowDict = {};
 		
-		sliderScript.text = "$('"+sliderId+i+"').slider({tooltip:'show'});";
+		sliderScript.text = "$('"+sliderId+i+"').slider({tooltip:'hide'});";
 		$tableId.append('<tr id="'+i+'"><td class="feat-left">'+
 											$spinValue+
 											'</td><td class="slid-right" id="sl'+i+'">'+
