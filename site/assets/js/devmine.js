@@ -3,6 +3,10 @@ languages[0] = "Java";
 languages[1] = "Python";
 languages[2] = "C++";
 languages[3] = "Haskell";
+languages[4] = "Objectice-C";
+languages[5] = "Go";
+languages[6] = "Scala";
+languages[7] = "Javascript";
 
 var paradigms = new Array();
 paradigms[0] = "OOP";
@@ -42,28 +46,30 @@ $(function() {
 		var inputId = e.data.id4;
 		var sliderScript = document.createElement('script');
 		var rowDict = {};
-		
-		sliderScript.text = "$('"+sliderId+i+"').slider({tooltip:'hide'});";
-		$tableId.append('<tr id="'+i+'"><td class="feat-left">'+
-											$spinValue+
-											'</td><td class="slid-right" id="sl'+i+'">'+
-											'<input type="text" class="span2" value="4" id="'+
-											inputId+i+
-											'" style="">'+
-											'</td></tr>');
-		$('#sl'+i+'')[0].appendChild(sliderScript);
 
-		rowDict[$spinValue] = 5;
-		resultDict[''+i] = rowDict;
+		if (!($spinValue in flattenObject(resultDict))) {
+			sliderScript.text = "$('"+sliderId+i+"').slider({tooltip:'hide'});";
+			$tableId.append('<tr id="'+i+'"><td class="feat-left">'+
+												$spinValue+
+												'</td><td class="slid-right" id="sl'+i+'">'+
+												'<input type="text" class="span2" value="4" id="'+
+												inputId+i+
+												'" style="">'+
+												'</td></tr>');
+			$('#sl'+i+'')[0].appendChild(sliderScript);
 
-		$(''+sliderId+i).slider().on('slideStop', makeSliderHandler(i, $spinValue));
+			rowDict[$spinValue] = 5;
+			resultDict[''+i] = rowDict;
 
-		i++;
+			$(''+sliderId+i).slider().on('slideStop', makeSliderHandler(i, $spinValue));
+
+			i++;
+		}
 	}
 
 	function removeRow(e) {
 		$(e.data.id).each(function() {
-			console.info(e.data.id);
+			//console.info(e.data.id);
 			if ($('tbody', this).length > 0) {
 				delete resultDict[$('tbody tr:last', this).attr('id')];
 				$('tbody tr:last', this).remove();
@@ -73,22 +79,6 @@ $(function() {
 			}
 		});
 	}
-
-	$.fn.serializeObject = function() {
-		var o = {};
-		var a = this.serializeArray();
-		$.each(a, function() {
-			if (o[this.name] !== undefined) {
-				if (!o[this.name].push) {
-					o[this.name] = [o[this.name]];
-				}
-				o[this.name].push(this.value || '');
-			} else {
-				o[this.name] = this.value || '';
-			}
-		});
-		return o;
-	};
 
 	function flattenObject(ob) {
 		var toReturn = {};
@@ -109,6 +99,13 @@ $(function() {
 		}
 		return toReturn;
 	}
+	
+	/* Tests for different dropdown lists */
+	$('button#drop-lang').click({
+		id1:'#drop-lang-select', id2:'#slid-ln', id3:'#tab-lang', id4:'slid-ln'
+	}, addRow);
+	$('button#rm-drop').click({id:'#tab-lang'}, removeRow);
+	/* end tests */
 
 	/* languages */
 	$("input[name=languages]").TouchSpin({
