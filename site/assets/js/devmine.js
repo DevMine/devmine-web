@@ -1,32 +1,43 @@
-var languages = new Array();
-languages[0] = "Java";
-languages[1] = "Python";
-languages[2] = "C++";
-languages[3] = "Haskell";
-languages[4] = "Objectice-C";
-languages[5] = "Go";
-languages[6] = "Scala";
-languages[7] = "Javascript";
+// var languages = new Array();
+// languages[0] = "Java";
+// languages[1] = "Python";
+// languages[2] = "C++";
+// languages[3] = "Haskell";
+// languages[4] = "Objectice-C";
+// languages[5] = "Go";
+// languages[6] = "Scala";
+// languages[7] = "Javascript";
 
-var paradigms = new Array();
-paradigms[0] = "OOP";
-paradigms[1] = "Functional";
-paradigms[2] = "Symbolic";
-paradigms[3] = "Logic";
-paradigms[4] = "Imperative";
-paradigms[5] = "Declarative";
+// var paradigms = new Array();
+// paradigms[0] = "OOP";
+// paradigms[1] = "Functional";
+// paradigms[2] = "Symbolic";
+// paradigms[3] = "Logic";
+// paradigms[4] = "Imperative";
+// paradigms[5] = "Declarative";
 	
-var options = new Array();
-options[0] = "option 1";
-options[1] = "option 2";
-options[2] = "option 3";
+// var options = new Array();
+// options[0] = "option 1";
+// options[1] = "option 2";
+// options[2] = "option 3";
 
 
-
+var languages = [];
 
 $(function() {
 	var i = 0;
 	var resultDict = {};
+
+	$.ajax({
+		url: "http://localhost:8080/features/by_category",
+		dataType: "json",
+		async: false,
+		success: function(data) {
+			$.each(data['languages'], function(i, v) {
+				languages.push({id: v, tag: v});
+			});
+		}
+	})
 
 	function makeSliderHandler(idx, spinValue) {
 		return function(ev) {
@@ -100,9 +111,19 @@ $(function() {
 		return toReturn;
 	}
 
+function format(item) { return item.tag; }
+// var data = [{id:"foo",tag:'enhancement'},
+// 			{id:"foo2",tag:'bug'},
+// 			{id:"foo3",tag:'duplicate'},
+// 			{id:"foo4",tag:'invalid'},
+// 			{id:"foo5",tag:'wontfix'}];
+
 	/* languages */
 	$("#drop-lang-select").select2({
-	    placeholder: "Select a Language",
+		placeholder: "Select a language",
+		data: {results: languages, text: 'tag' },
+		formatSelection: format,
+		formatResult: format,
 	    allowClear: true
 	});
 	$('button#add-lang').click({
