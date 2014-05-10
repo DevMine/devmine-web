@@ -99,38 +99,35 @@ $(function() {
 		}
 		return toReturn;
 	}
-	
-	/* Tests for different dropdown lists */
-	$('button#drop-lang').click({
-		id1:'#drop-lang-select', id2:'#slid-ln', id3:'#tab-lang', id4:'slid-ln'
-	}, addRow);
-	$('button#rm-drop').click({id:'#tab-lang'}, removeRow);
-	/* end tests */
 
 	/* languages */
-	$("input[name=languages]").TouchSpin({
-		items: languages
+	$("#drop-lang-select").select2({
+	    placeholder: "Select a Language",
+	    allowClear: true
 	});
 	$('button#add-lang').click({
-		id1:'#spin-lang', id2:'#slid-ln', id3:'#tab-lang', id4:'slid-ln'
+		id1:'#drop-lang-select', id2:'#slid-ln', id3:'#tab-lang', id4:'slid-ln'
 	}, addRow);
 	$('button#rm-lang').click({id:'#tab-lang'}, removeRow);
 	
 	/* paradigms */
-	$("input[name=paradigms]").TouchSpin({
-		items: paradigms
+	$("#drop-pdgm-select").select2({
+	    placeholder: "Select a Paradigm",
+	    allowClear: true
 	});
+
 	$('button#add-pdgm').click({
-			id1:'#spin-pdgm', id2:'#slid-pm', id3:'#tab-pdgm', id4:'slid-pm'
+			id1:'#drop-pdgm-select', id2:'#slid-pm', id3:'#tab-pdgm', id4:'slid-pm'
 		}, addRow);
 	$('button#rm-pdgm').click({id:'#tab-pdgm'}, removeRow);
 
 	/* options */
-	$("input[name=options]").TouchSpin({
-		items: options
+	$("#drop-optn-select").select2({
+	    placeholder: "Select an Option",
+	    allowClear: true
 	});
 	$('button#add-optn').click({
-		id1:'#spin-optn', id2:'#slid-op', id3:'#tab-optn', id4:'slid-op'
+		id1:'#drop-optn-select', id2:'#slid-op', id3:'#tab-optn', id4:'slid-op'
 	}, addRow);
 	$('button#rm-optn').click({id:'#tab-optn'}, removeRow);
 
@@ -139,7 +136,6 @@ $(function() {
 		$('#result').text(JSON.stringify(flattenObject(resultDict)));
 		return false;
 	});
-
 
 });
 

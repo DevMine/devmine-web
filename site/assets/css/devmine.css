@@ -18,3 +18,21 @@
     height: 40px;
     overflow: auto;
 }
+
+.select2-container .select2-choice {
+	height:34px !important;
+	line-height:34px !important;
+	background-color: transparent !important;
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important; 
+}
+
+
+.select2-drop-mask {
+	background-color: transparent !important;
+}
+
+.form-control {
+	background-color: transparent !important;
+	border-color: transparent !important;	
+}

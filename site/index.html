@@ -10,6 +10,8 @@
   <link href="lib/assets/css/slider.css" rel="stylesheet">
   <link href="lib/assets/less/slider.less" rel="text/css">
   <link href="lib/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/assets/css/select2-bootstrap.css" rel="stylesheet">
+  <link href="lib/assets/css/select2.css" rel="stylesheet">
   <link href="assets/css/cover.css" rel="stylesheet">
   <link href="assets/css/devmine.css" rel="stylesheet">
 
@@ -41,41 +43,64 @@
 
         <form role="form">
 					<div class="row">
+
             <div class="col-6 col-sm-6 col-lg-6">
               <h2>Languages</h2>
-							<div class="input-group">
-								<input id="spin-lang" type="text" value="" name="languages" class="form-control">
-									<div class="input-group-btn">
-										<button id="add-lang" type="button" class="btn btn-default">Add</button>
-										<button id="rm-lang" type="button" class="btn btn-default">Remove</button>
-									</div>
-							</div>
+              <div class="input-group">
+								<div class="input-group-btn">
+									<button id="add-lang" type="button" class="btn btn-default">Add</button>
+									<button id="rm-lang" type="button" class="btn btn-default">Remove</button>
+								</div>
+	              <select id="drop-lang-select" class="form-control select2-container">
+	              	<option>Java</option>
+	              	<option>Python</option>
+	              	<option>C++</option>
+	              	<option>Haskell</option>
+	              	<option>Objective-C</option>
+	              	<option>Go</option>
+	              	<option>Scala</option>
+	              	<option>Javascript</option>
+	              </select>
+              </div>
+
 							<table id="tab-lang"></table>
             </div><!--/span-->
 
             <div class="col-6 col-sm-6 col-lg-6">
               <h2>Paradigms</h2>
-							<div class="input-group">
-								<input id="spin-pdgm" type="text" value="" name="paradigms" class="form-control">
-									<div class="input-group-btn">
-										<button id="add-pdgm" type="button" class="btn btn-default">Add</button>
-										<button id="rm-pdgm" type="button" class="btn btn-default">Remove</button>
-									</div>
-							</div>
+              <div class="input-group">
+								<div class="input-group-btn">
+									<button id="add-pdgm" type="button" class="btn btn-default">Add</button>
+									<button id="rm-pdgm" type="button" class="btn btn-default">Remove</button>
+								</div>
+	              <select id="drop-pdgm-select" class="form-control select2-container">
+	              	<option>OOP</option>
+	              	<option>Functional</option>
+	              	<option>Symbolic++</option>
+	              	<option>Logic</option>
+	              	<option>Imperative</option>
+	              	<option>Declarative</option>
+	              </select>
+              </div>
 							<table id="tab-pdgm"></table>						
             </div><!--/span-->
 					</div><!--row-->
-					
+
 					<div class="row">
             <div class="col-6 col-sm-6 col-lg-6">
               <h2>Options</h2>
-							<div class="input-group">
-								<input id="spin-optn" type="text" value="" name="options" class="form-control">
-									<div class="input-group-btn">
-										<button id="add-optn" type="button" class="btn btn-default">Add</button>
-										<button id="rm-optn" type="button" class="btn btn-default">Remove</button>
-									</div>
-							</div>  
+              <div class="input-group">
+								<div class="input-group-btn">
+									<button id="add-optn" type="button" class="btn btn-default">Add</button>
+									<button id="rm-optn" type="button" class="btn btn-default">Remove</button>
+								</div>
+	              <select id="drop-optn-select" class="form-control select2-container">
+	              	<option>Option 1</option>
+	              	<option>Option 2</option>
+	              	<option>Option 3</option>
+	              	<option>Option 4</option>
+	              </select>
+              </div>
 							<table id="tab-optn"></table>
             </div><!--/span-->
             <div class="col-6 col-sm-6 col-lg-6"></div>
@@ -108,6 +133,7 @@
   <script src="lib/assets/js/bootstrap.min.js"></script>
   <script src="lib/assets/js/bootstrap-slider.js"></script>
 	<script src="lib/assets/js/modified_bootstrap.touchspin.js"></script>
+	<script src="lib/assets/js/select2.min.js"></script>
 	<script src="lib/assets/js/prettify.js"></script>
 	<script src="assets/js/devmine.js"></script>
 
