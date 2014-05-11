@@ -14,6 +14,13 @@
   <link href="lib/assets/css/select2.css" rel="stylesheet">
   <link href="assets/css/cover.css" rel="stylesheet">
   <link href="assets/css/devmine.css" rel="stylesheet">
+  <script src="lib/assets/js/jquery-2.1.0.min.js"></script>
+  <script src="lib/assets/js/bootstrap.min.js"></script>
+  <script src="lib/assets/js/bootstrap-slider.js"></script>
+	<script src="lib/assets/js/modified_bootstrap.touchspin.js"></script>
+	<script src="lib/assets/js/select2.min.js"></script>
+	<script src="lib/assets/js/prettify.js"></script>
+	<script src="assets/js/devmine.js"></script>
 
   <!--link href="libraries/demo.css" rel="stylesheet" type="text/css" media="all"-->
 
@@ -73,14 +80,14 @@
 									<button id="add-pdgm" type="button" class="btn btn-default">Add</button>
 									<button id="rm-pdgm" type="button" class="btn btn-default">Remove</button>
 								</div>
-	              <select id="drop-pdgm-select" class="form-control select2-container">
-	              	<option>OOP</option>
+	              <div id="drop-pdgm-select" class="form-control select2-container">
+	              	<!--option>OOP</option>
 	              	<option>Functional</option>
 	              	<option>Symbolic++</option>
 	              	<option>Logic</option>
 	              	<option>Imperative</option>
-	              	<option>Declarative</option>
-	              </select>
+	              	<option>Declarative</option-->
+	              </div>
               </div>
 							<table id="tab-pdgm"></table>						
             </div><!--/span-->
@@ -103,8 +110,24 @@
               </div>
 							<table id="tab-optn"></table>
             </div><!--/span-->
-            <div class="col-6 col-sm-6 col-lg-6"></div>
+
+            <div class="col-6 col-sm-6 col-lg-6">
+            	<h2>Others</h2>
+            	<!--div id="drop-oth-select"></div-->
+            	<table id="tab-oth">
+            		<tbody>
+            			<tr id="0">
+            				<td class="feat-left">Reputation</td>
+            				<td class="slid-right" id="sl0">
+            					<input type="text" class="span2" value="4" id="slid-ot0" style="">
+            					<script>$('#slid-ot0').slider({tooltip:'hide'});</script>
+            				</td>
+            			</tr>
+            		</tbody>
+            	</table>
+            </div>
 					</div><!--/row-->
+
 					<div class="row">
           	<div class="inner center">
             	<button type="submit" class="btn btn-default">Submit</button>
@@ -129,13 +152,6 @@
     </div>
   </div>
 
-  <script src="lib/assets/js/jquery-2.1.0.min.js"></script>
-  <script src="lib/assets/js/bootstrap.min.js"></script>
-  <script src="lib/assets/js/bootstrap-slider.js"></script>
-	<script src="lib/assets/js/modified_bootstrap.touchspin.js"></script>
-	<script src="lib/assets/js/select2.min.js"></script>
-	<script src="lib/assets/js/prettify.js"></script>
-	<script src="assets/js/devmine.js"></script>
 
 </body>
 </html>

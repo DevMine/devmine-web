@@ -23,21 +23,25 @@
 
 
 var languages = [];
+var paradigms = [];
 
 $(function() {
-	var i = 0;
-	var resultDict = {};
+	var i = 1;
+	var resultDict = {0:{Reputation:5}};
 
 	$.ajax({
 		url: "http://localhost:8080/features/by_category",
 		dataType: "json",
 		async: false,
 		success: function(data) {
-			$.each(data['languages'], function(i, v) {
-				languages.push({id: v, tag: v});
+			$.each(data['Languages'], function(i, v) {
+				languages.push({id: v.name, tag: v.name});
+			});
+			$.each(data['Paradigms'], function(i, v) {
+				paradigms.push({id: v.name, tag: v.name});
 			});
 		}
-	})
+	});
 
 	function makeSliderHandler(idx, spinValue) {
 		return function(ev) {
@@ -111,12 +115,12 @@ $(function() {
 		return toReturn;
 	}
 
-function format(item) { return item.tag; }
-// var data = [{id:"foo",tag:'enhancement'},
-// 			{id:"foo2",tag:'bug'},
-// 			{id:"foo3",tag:'duplicate'},
-// 			{id:"foo4",tag:'invalid'},
-// 			{id:"foo5",tag:'wontfix'}];
+	function format(item) { return item.tag; }
+	// var data = [{id:"foo",tag:'enhancement'},
+	// 			{id:"foo2",tag:'bug'},
+	// 			{id:"foo3",tag:'duplicate'},
+	// 			{id:"foo4",tag:'invalid'},
+	// 			{id:"foo5",tag:'wontfix'}];
 
 	/* languages */
 	$("#drop-lang-select").select2({
@@ -134,6 +138,9 @@ function format(item) { return item.tag; }
 	/* paradigms */
 	$("#drop-pdgm-select").select2({
 	    placeholder: "Select a Paradigm",
+		data: {results: paradigms, text: 'tag' },
+		formatSelection: format,
+		formatResult: format,	    
 	    allowClear: true
 	});
 
@@ -152,12 +159,17 @@ function format(item) { return item.tag; }
 	}, addRow);
 	$('button#rm-optn').click({id:'#tab-optn'}, removeRow);
 
+	/* Others */
+	// addRow({
+	// 	id1:'#drop-optn-select', id2:'#slid-ot', id3:'#tab-oth', id4:'slid-ot'
+	// });
+
 	/* submit */
 	$('form').submit(function() {
 		$('#result').text(JSON.stringify(flattenObject(resultDict)));
 		return false;
 	});
-
+	$('#slid-ot0').slider().on('slideStop', makeSliderHandler(0, 'Reputation'));
 });
 
 
