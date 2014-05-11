@@ -95,6 +95,20 @@ $(function() {
 		return item.tag;
 	}
 
+	function displayTableResults(data) {
+		$.each(data.results, function(k, v) {
+			$('#resultTable').append("<tr><td>" +
+							v.ulogin +
+							"</td><td>" +
+							v.rank +
+							"</td></tr>");
+		});
+	}
+
+	function displayElapsedTime(data) {
+		$('#time').append("Search time: "+ data.elapsed_time + " milliseconds.");
+	}
+
 	/* languages */
 	$("#drop-lang-select").select2({
 		placeholder: "Select a language",
@@ -139,10 +153,12 @@ $(function() {
 	$('form').submit(function() {
 		//$('#result').text(JSON.stringify(flattenObject(resultDict)));
 		$.ajax({
-			url: 'http://localhost:8080/search/'+JSON.stringify(flattenObject(resultDict)),
+			url: 'http://localhost:8080/search/' + JSON.stringify(flattenObject(resultDict)),
 			dataType: 'json',
 			success: function(data) {
-				$('#result').text(JSON.stringify(data));
+				//$('#result').text(JSON.stringify(data));
+				displayTableResults(data);
+				displayElapsedTime(data);
 			}
 		});
 		return false;
