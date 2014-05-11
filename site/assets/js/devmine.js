@@ -96,6 +96,8 @@ $(function() {
 	}
 
 	function displayTableResults(data) {
+		$('#resultTable').text('');
+		$('#resultTable').append('<thead><tr><th>Users</th><th>Scores</th></tr></thead><tbody>');
 		$.each(data.results, function(k, v) {
 			$('#resultTable').append("<tr><td>" +
 							v.ulogin +
@@ -103,13 +105,15 @@ $(function() {
 							v.rank +
 							"</td></tr>");
 		});
+		$('#resultTable').append('</tbody>');
 	}
 
 	function displayElapsedTime(data) {
+		$('#time').text('');
 		$('#time').append("Search time: "+ data.elapsed_time + " milliseconds.");
 	}
 
-	/* languages */
+	/* Languages */
 	$("#drop-lang-select").select2({
 		placeholder: "Select a language",
 		data: {results: languages, text: 'tag' },
@@ -122,7 +126,7 @@ $(function() {
 	}, addRow);
 	$('button#rm-lang').click({id:'#tab-lang'}, removeRow);
 	
-	/* paradigms */
+	/* Paradigms */
 	$("#drop-pdgm-select").select2({
 		placeholder: "Select a Paradigm",
 		data: {results: paradigms, text: 'tag' },
@@ -136,7 +140,7 @@ $(function() {
 		}, addRow);
 	$('button#rm-pdgm').click({id:'#tab-pdgm'}, removeRow);
 
-	/* options */
+	/* Options */
 	$("#drop-optn-select").select2({
 	    placeholder: "Select an Option",
 	    allowClear: true
@@ -149,7 +153,7 @@ $(function() {
 	/* Others */
 	$('#slid-ot0').slider().on('slideStop', makeSliderHandler(0, 'Reputation'));
 
-	/* submit */
+	/* Submission */
 	$('form').submit(function() {
 		//$('#result').text(JSON.stringify(flattenObject(resultDict)));
 		$.ajax({

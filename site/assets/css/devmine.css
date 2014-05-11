@@ -35,3 +35,7 @@
 	background-color: transparent !important;
 	border-color: transparent !important;	
 }
+
+#resultTable tbody td {
+	text-align:left !important;
+}
