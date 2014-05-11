@@ -1,6 +1,7 @@
 
 var languages = [];
 var paradigms = [];
+var others = [];
 
 $(function() {
 	var i = 1;
@@ -16,6 +17,9 @@ $(function() {
 			});
 			$.each(data['Paradigms'], function(i, v) {
 				paradigms.push({id: v.name, tag: v.name});
+			});
+			$.each(data['Others'], function(i, v) {
+				others.push({id: v.name, tag: v.name});
 			});
 		}
 	});
@@ -100,7 +104,7 @@ $(function() {
 		$('#resultTable').append('<thead><tr><th>Users</th><th>Scores</th></tr></thead><tbody>');
 		$.each(data.results, function(k, v) {
 			$('#resultTable').append("<tr><td>" +
-							v.ulogin +
+							'<a href="https://github.com/'+ v.ulogin + '">' + v.ulogin +
 							"</td><td>" +
 							v.rank +
 							"</td></tr>");
@@ -143,6 +147,9 @@ $(function() {
 	/* Options */
 	$("#drop-optn-select").select2({
 	    placeholder: "Select an Option",
+	    data: {results: others, text: 'tag' },
+		formatSelection: format,
+		formatResult: format,	    
 	    allowClear: true
 	});
 	$('button#add-optn').click({
