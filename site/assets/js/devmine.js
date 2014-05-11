@@ -1,26 +1,3 @@
-// var languages = new Array();
-// languages[0] = "Java";
-// languages[1] = "Python";
-// languages[2] = "C++";
-// languages[3] = "Haskell";
-// languages[4] = "Objectice-C";
-// languages[5] = "Go";
-// languages[6] = "Scala";
-// languages[7] = "Javascript";
-
-// var paradigms = new Array();
-// paradigms[0] = "OOP";
-// paradigms[1] = "Functional";
-// paradigms[2] = "Symbolic";
-// paradigms[3] = "Logic";
-// paradigms[4] = "Imperative";
-// paradigms[5] = "Declarative";
-	
-// var options = new Array();
-// options[0] = "option 1";
-// options[1] = "option 2";
-// options[2] = "option 3";
-
 
 var languages = [];
 var paradigms = [];
@@ -105,7 +82,6 @@ $(function() {
 				var flatObject = flattenObject(ob[i]);
 				for (var x in flatObject) {
 					if (!flatObject.hasOwnProperty(x)) continue;
-
 					toReturn[x] = flatObject[x];
 				}
 			} else {
@@ -115,12 +91,9 @@ $(function() {
 		return toReturn;
 	}
 
-	function format(item) { return item.tag; }
-	// var data = [{id:"foo",tag:'enhancement'},
-	// 			{id:"foo2",tag:'bug'},
-	// 			{id:"foo3",tag:'duplicate'},
-	// 			{id:"foo4",tag:'invalid'},
-	// 			{id:"foo5",tag:'wontfix'}];
+	function format(item) {
+		return item.tag;
+	}
 
 	/* languages */
 	$("#drop-lang-select").select2({
@@ -128,7 +101,7 @@ $(function() {
 		data: {results: languages, text: 'tag' },
 		formatSelection: format,
 		formatResult: format,
-	    allowClear: true
+		allowClear: true
 	});
 	$('button#add-lang').click({
 		id1:'#drop-lang-select', id2:'#slid-ln', id3:'#tab-lang', id4:'slid-ln'
@@ -137,11 +110,11 @@ $(function() {
 	
 	/* paradigms */
 	$("#drop-pdgm-select").select2({
-	    placeholder: "Select a Paradigm",
+		placeholder: "Select a Paradigm",
 		data: {results: paradigms, text: 'tag' },
 		formatSelection: format,
 		formatResult: format,	    
-	    allowClear: true
+		allowClear: true
 	});
 
 	$('button#add-pdgm').click({
@@ -175,8 +148,3 @@ $(function() {
 		return false;
 	});
 });
-
-
-
-
-
