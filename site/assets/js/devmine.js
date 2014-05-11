@@ -160,16 +160,21 @@ $(function() {
 	$('button#rm-optn').click({id:'#tab-optn'}, removeRow);
 
 	/* Others */
-	// addRow({
-	// 	id1:'#drop-optn-select', id2:'#slid-ot', id3:'#tab-oth', id4:'slid-ot'
-	// });
+	$('#slid-ot0').slider().on('slideStop', makeSliderHandler(0, 'Reputation'));
 
 	/* submit */
 	$('form').submit(function() {
-		$('#result').text(JSON.stringify(flattenObject(resultDict)));
+		//$('#result').text(JSON.stringify(flattenObject(resultDict)));
+		$.ajax({
+			url: 'http://localhost:8080/search',
+			data: JSON.stringify(flattenObject(resultDict)),
+			dataType: 'json',
+			success: function(data) {
+				$('#result').text(JSON.stringify(data));
+			}
+		});
 		return false;
 	});
-	$('#slid-ot0').slider().on('slideStop', makeSliderHandler(0, 'Reputation'));
 });
 
 
