@@ -114,7 +114,7 @@ $(function() {
 
 	function displayElapsedTime(data) {
 		$('#time').text('');
-		$('#time').append("Search time: "+ data.elapsed_time + " milliseconds.");
+		$('#time').append("Search time: "+ data.elapsed_time + " seconds.");
 	}
 
 	/* Languages */
