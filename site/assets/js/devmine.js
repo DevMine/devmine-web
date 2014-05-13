@@ -7,6 +7,7 @@ $(function() {
 	var i = 1;
 	var resultDict = {0:{Reputation:5}};
 	var urlAPI = "http://localhost:8080";
+
 	$.ajax({
 		url: urlAPI + "/features/by_category",
 		dataType: "json",
@@ -165,6 +166,7 @@ $(function() {
 	$('form').submit(function() {
 		//$('#result').text(JSON.stringify(flattenObject(resultDict)));
         $('#spinner').addClass('spinner').append('<div>Loading</div>');
+        $('#resultTable').empty();
 		$.ajax({
 			url: urlAPI + '/search/' + JSON.stringify(flattenObject(resultDict)),
 			dataType: 'json',
