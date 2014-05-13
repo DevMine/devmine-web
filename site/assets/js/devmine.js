@@ -6,9 +6,9 @@ var others = [];
 $(function() {
 	var i = 1;
 	var resultDict = {0:{Reputation:5}};
-
+	var urlAPI = "http://localhost:8080";
 	$.ajax({
-		url: "http://localhost:8080/features/by_category",
+		url: urlAPI + "/features/by_category",
 		dataType: "json",
 		async: false,
 		success: function(data) {
@@ -166,7 +166,7 @@ $(function() {
 		//$('#result').text(JSON.stringify(flattenObject(resultDict)));
         $('#spinner').addClass('spinner').append('<div>Loading</div>');
 		$.ajax({
-			url: 'http://localhost:8080/search/' + JSON.stringify(flattenObject(resultDict)),
+			url: urlAPI + '/search/' + JSON.stringify(flattenObject(resultDict)),
 			dataType: 'json',
 			success: function(data) {
 				//$('#result').text(JSON.stringify(data));
