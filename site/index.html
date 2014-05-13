@@ -1,129 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>DevMine</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="DevMine team">
-  <link rel="shortcut icon" href="assets/img/favicon.ico">
-  <link href="lib/assets/css/slider.css" rel="stylesheet">
-  <link href="lib/assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="lib/assets/css/select2-bootstrap.css" rel="stylesheet">
-  <link href="lib/assets/css/select2.css" rel="stylesheet">
-  <link href="lib/assets/css/spinner.css" rel="stylesheet">
-  <link href="assets/css/cover.css" rel="stylesheet">
-  <link href="assets/css/devmine.css" rel="stylesheet">
-  <script src="lib/assets/js/prefixfree.min.js"></script>
-  <script src="lib/assets/js/jquery-2.1.0.min.js"></script>
-  <script src="lib/assets/js/bootstrap.min.js"></script>
-  <script src="lib/assets/js/bootstrap-slider.js"></script>
-  <script src="lib/assets/js/modified_bootstrap.touchspin.js"></script>
-  <script src="lib/assets/js/select2.min.js"></script>
-  <script src="lib/assets/js/prettify.js"></script>
-  <script src="assets/js/devmine.js"></script>
-
-  <!--link href="libraries/demo.css" rel="stylesheet" type="text/css" media="all"-->
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-      <script src="lib/assets/js/html5shiv.js"></script>
-      <script src="lib/assets/js/respond.min.js"></script>
-  <![endif]-->
+    <title>DevMine</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="DevMine team">
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <link href="lib/assets/css/slider.css" rel="stylesheet">
+    <link href="lib/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/assets/css/select2-bootstrap.css" rel="stylesheet">
+    <link href="lib/assets/css/select2.css" rel="stylesheet">
+    <link href="lib/assets/css/spinner.css" rel="stylesheet">
+    <link href="assets/css/cover.css" rel="stylesheet">
+    <link href="assets/css/devmine.css" rel="stylesheet">
+    <script src="lib/assets/js/prefixfree.min.js"></script>
+    <script src="lib/assets/js/jquery-2.1.0.min.js"></script>
+    <script src="lib/assets/js/bootstrap.min.js"></script>
+    <script src="lib/assets/js/bootstrap-slider.js"></script>
+    <script src="lib/assets/js/modified_bootstrap.touchspin.js"></script>
+    <script src="lib/assets/js/select2.min.js"></script>
+    <script src="lib/assets/js/prettify.js"></script>
+    <script src="assets/js/devmine.js"></script>
+    <!--link href="libraries/demo.css" rel="stylesheet" type="text/css" media="all"-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="lib/assets/js/html5shiv.js"></script>
+    <script src="lib/assets/js/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-  <div class="site-wrapper">
-    <div class="site-wrapper-inner">
-      <div class="cover-container">
-        <div class="inner cover">
-        <h1 class="cover-heading">
-          Dig into the mine of developers and find the one you need.
-        </h1>
-
-        <form role="form">
-					<div class="row">
-
-            <div class="col-6 col-sm-6 col-lg-6">
-              <h2>Languages</h2>
-              <div class="input-group">
-								<div class="input-group-btn">
-									<button id="add-lang" type="button" class="btn btn-default">Add</button>
-									<button id="rm-lang" type="button" class="btn btn-default">Remove</button>
-								</div>
-	              <div id="drop-lang-select" class="form-control select2-container">
-	              </div>
-              </div>
-
-							<table id="tab-lang"></table>
-            </div><!--span-->
-
-            <div class="col-6 col-sm-6 col-lg-6">
-              <h2>Paradigms</h2>
-              <div class="input-group">
-								<div class="input-group-btn">
-									<button id="add-pdgm" type="button" class="btn btn-default">Add</button>
-									<button id="rm-pdgm" type="button" class="btn btn-default">Remove</button>
-								</div>
-	              <div id="drop-pdgm-select" class="form-control select2-container">
-	              </div>
-              </div>
-							<table id="tab-pdgm"></table>						
-            </div><!--span-->
-					</div><!--row-->
-
-					<div class="row">
-            <div class="col-6 col-sm-6 col-lg-6">
-              <h2>Others</h2>
-              <div class="input-group">
-								<div class="input-group-btn">
-									<button id="add-optn" type="button" class="btn btn-default">Add</button>
-									<button id="rm-optn" type="button" class="btn btn-default">Remove</button>
-								</div>
-	              <div id="drop-optn-select" class="form-control select2-container">
-	              </div>
-              </div>
-            	<table id="tab-oth">
-            		<tbody>
-            			<tr id="0">
-            				<td class="feat-left">Reputation</td>
-            				<td class="slid-right" id="sl0">
-            					<input type="text" class="span2" value="4" id="slid-ot0" style="">
-            					<script>$('#slid-ot0').slider({tooltip:'hide'});</script>
-            				</td>
-            			</tr>
-            		</tbody>
-            	</table>              
-							<table id="tab-optn">							
-							</table>
-            </div><!--span-->
-					</div><!--row-->
-
-					<div class="row">
-          	<div class="inner center">
-            	<button type="submit" class="btn btn-default">Dig!</button>
-						</div>
-					</div><!--row-->			
-        </form>
-      </div><!--span-->
-
-			<!-- results display -->
-			<div class="row">
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
+                    <h1 class="cover-heading">Dig into the mine of developers and find the one you need.</h1>
+                    <form role="form">
+                        <div class="row">
+                            <div class="col-6 col-sm-6 col-lg-6">
+                                <h2>Languages</h2>
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button id="add-lang" type="button" class="btn btn-default">Add</button>
+                                        <button id="rm-lang" type="button" class="btn btn-default">Remove</button>
+                                    </div>
+                                    <div id="drop-lang-select" class="form-control select2-container"></div>
+                                </div><!-- input-group -->
+                                <table id="tab-lang"></table>
+                            </div><!-- col -->
+                            <div class="col-6 col-sm-6 col-lg-6">
+                                <h2>Paradigms</h2>
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button id="add-pdgm" type="button" class="btn btn-default">Add</button>
+                                        <button id="rm-pdgm" type="button" class="btn btn-default">Remove</button>
+                                    </div>
+                                    <div id="drop-pdgm-select" class="form-control select2-container">
+                                    </div>
+                                </div><!-- input-group -->
+                                <table id="tab-pdgm"></table>
+                            </div><!-- col -->
+                        </div><!--row-->
+                        <div class="row">
+                            <div class="col-6 col-sm-6 col-lg-6">
+                                <h2>Others</h2>
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button id="add-optn" type="button" class="btn btn-default">Add</button>
+                                        <button id="rm-optn" type="button" class="btn btn-default">Remove</button>
+                                    </div>
+                                    <div id="drop-optn-select" class="form-control select2-container"></div>
+                                </div><!-- input-group -->
+                                <table id="tab-oth">
+                                    <tbody>
+                                        <tr id="0">
+                                            <td class="feat-left">Reputation</td>
+                                            <td class="slid-right" id="sl0">
+                                                <input type="text" class="span2" value="4" id="slid-ot0" style="">
+                                                <script>$('#slid-ot0').slider({tooltip:'hide'});</script>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table id="tab-optn"></table>
+                            </div><!-- col -->
+                        </div><!-- row -->
+                        <div class="row">
+                            <div class="inner center">
+                                <button type="submit" class="btn btn-default">Dig!</button>
+                            </div>
+                        </div>
+                    </form>
+                </div><!-- inner-cover -->
+            </div><!-- cover-container -->
+            <div class="container">
                 <div id="spinner" class=""></div>
-				<div class="table-responsive">
-					<table id="resultTable" class="table">
-					</table>
-				</div>
-					<p id="time"></p>
-			</div>
-			<!-- end results display -->
-
-      <div class="col-6 col-sm-12">
-        <div class="inner center">
-          <p>&copy; <a href="https://github.com/DevMine">DevMine</a> 2014</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
+                <div class="table-responsive">
+                    <table id="resultTable" class="table"></table>
+                </div>
+                <p id="time"></p>
+                <!-- end results display -->
+                <div class="inner center">
+                    <p>&copy; <a href="https://github.com/DevMine">DevMine</a> 2014</p>
+                </div>
+            </div><!-- container -->
+        </div><!-- site-wrapper-inner -->
+    </div><!-- site-wrapper -->
 </body>
 </html>
