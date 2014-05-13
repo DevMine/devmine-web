@@ -12,15 +12,17 @@
   <link href="lib/assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="lib/assets/css/select2-bootstrap.css" rel="stylesheet">
   <link href="lib/assets/css/select2.css" rel="stylesheet">
+  <link href="lib/assets/css/spinner.css" rel="stylesheet">
   <link href="assets/css/cover.css" rel="stylesheet">
   <link href="assets/css/devmine.css" rel="stylesheet">
+  <script src="lib/assets/js/prefixfree.min.js"></script>
   <script src="lib/assets/js/jquery-2.1.0.min.js"></script>
   <script src="lib/assets/js/bootstrap.min.js"></script>
   <script src="lib/assets/js/bootstrap-slider.js"></script>
-	<script src="lib/assets/js/modified_bootstrap.touchspin.js"></script>
-	<script src="lib/assets/js/select2.min.js"></script>
-	<script src="lib/assets/js/prettify.js"></script>
-	<script src="assets/js/devmine.js"></script>
+  <script src="lib/assets/js/modified_bootstrap.touchspin.js"></script>
+  <script src="lib/assets/js/select2.min.js"></script>
+  <script src="lib/assets/js/prettify.js"></script>
+  <script src="assets/js/devmine.js"></script>
 
   <!--link href="libraries/demo.css" rel="stylesheet" type="text/css" media="all"-->
 
@@ -111,6 +113,7 @@
 
 			<!-- results display -->
 			<div class="row">
+                <div id="spinner" class=""></div>
 				<div class="table-responsive">
 					<table id="resultTable" class="table">
 					</table>

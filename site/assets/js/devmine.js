@@ -100,6 +100,7 @@ $(function() {
 	}
 
 	function displayTableResults(data) {
+        $('#spinner').removeClass('spinner').empty();
 		$('#resultTable').text('');
 		$('#resultTable').append('<thead><tr><th>Users</th><th>Scores</th></tr></thead><tbody>');
 		$.each(data.results, function(k, v) {
@@ -163,6 +164,7 @@ $(function() {
 	/* Submission */
 	$('form').submit(function() {
 		//$('#result').text(JSON.stringify(flattenObject(resultDict)));
+        $('#spinner').addClass('spinner').append('<div>Loading</div>');
 		$.ajax({
 			url: 'http://localhost:8080/search/' + JSON.stringify(flattenObject(resultDict)),
 			dataType: 'json',
