@@ -165,6 +165,7 @@ $(function() {
 	$('form').submit(function() {
 		//$('#result').text(JSON.stringify(flattenObject(resultDict)));
         $('#spinner').addClass('spinner').append('<div>Loading</div>');
+        $('#resultTable').empty();
 		$.ajax({
 			url: 'http://localhost:8080/search/' + JSON.stringify(flattenObject(resultDict)),
 			dataType: 'json',
