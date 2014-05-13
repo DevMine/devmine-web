@@ -115,8 +115,7 @@ $(function() {
 	}
 
 	function displayElapsedTime(data) {
-		$('#time').text('');
-		$('#time').append("Search time: "+ data.elapsed_time + " seconds.");
+		$('#time').text("Elapsed time: "+ data.elapsed_time + " seconds.");
 	}
 
 	/* Languages */
@@ -165,6 +164,7 @@ $(function() {
 	/* Submission */
 	$('form').submit(function() {
 		//$('#result').text(JSON.stringify(flattenObject(resultDict)));
+        $('#time').text('');
         $('#spinner').addClass('spinner').append('<div>Loading</div>');
         $('#resultTable').empty();
 		$.ajax({
