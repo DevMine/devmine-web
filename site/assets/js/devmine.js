@@ -46,13 +46,16 @@ $(function() {
 
 		if (!($spinValue in flattenObject(resultDict))) {
 			sliderScript.text = "$('"+sliderId+i+"').slider({tooltip:'hide'});";
-			$tableId.append('<tr id="'+i+'"><td class="feat-left">'+
-												$spinValue+
-												'</td><td class="slid-right" id="sl'+i+'">'+
-												'<input type="text" class="span2" value="4" id="'+
-												inputId+i+
-												'" style="">'+
-												'</td></tr>');
+			$tableId.append(
+					'<tr id="'+i+
+					'"><td class="feat-left">'+
+					$spinValue+
+					'</td><td class="slid-right" id="sl'+i+'">'+
+					'<input type="text" class="span2" value="4" id="'+
+					inputId+i+
+					'" style="">'+
+					'</td></tr>'
+					);
 			$('#sl'+i+'')[0].appendChild(sliderScript);
 
 			rowDict[$spinValue] = 5;
@@ -105,11 +108,15 @@ $(function() {
 		$('#resultTable').text('');
 		$('#resultTable').append('<thead><tr><th>Users</th><th>Scores</th></tr></thead><tbody>');
 		$.each(data.results, function(k, v) {
-			$('#resultTable').append("<tr><td>" +
-							'<a href="https://github.com/'+ v.ulogin + '">' + v.ulogin +
+			$('#resultTable').append(
+							"<tr><td>" +
+							'<a href="https://github.com/'+
+							v.ulogin + '">' +
+							v.ulogin +
 							"</td><td>" +
 							v.rank +
-							"</td></tr>");
+							"</td></tr>"
+							);
 		});
 		$('#resultTable').append('</tbody>');
 	}
@@ -127,8 +134,11 @@ $(function() {
 		allowClear: true
 	});
 	$('button#add-lang').click({
-		id1:'#drop-lang-select', id2:'#slid-ln', id3:'#tab-lang', id4:'slid-ln'
-	}, addRow);
+		id1:'#drop-lang-select',
+		id2:'#slid-ln',
+		id3:'#tab-lang',
+		id4:'slid-ln'
+		}, addRow);
 	$('button#rm-lang').click({id:'#tab-lang'}, removeRow);
 	
 	/* Paradigms */
@@ -141,21 +151,27 @@ $(function() {
 	});
 
 	$('button#add-pdgm').click({
-			id1:'#drop-pdgm-select', id2:'#slid-pm', id3:'#tab-pdgm', id4:'slid-pm'
+		id1:'#drop-pdgm-select',
+		id2:'#slid-pm',
+		id3:'#tab-pdgm',
+		id4:'slid-pm'
 		}, addRow);
 	$('button#rm-pdgm').click({id:'#tab-pdgm'}, removeRow);
 
 	/* Options */
 	$("#drop-optn-select").select2({
-	    placeholder: "Select an Option",
-	    data: {results: others, text: 'tag' },
+		placeholder: "Select an Option",
+		data: {results: others, text: 'tag' },
 		formatSelection: format,
-		formatResult: format,	    
-	    allowClear: true
+		formatResult: format,
+		allowClear: true
 	});
 	$('button#add-optn').click({
-		id1:'#drop-optn-select', id2:'#slid-op', id3:'#tab-optn', id4:'slid-op'
-	}, addRow);
+		id1:'#drop-optn-select',
+		id2:'#slid-op',
+		id3:'#tab-optn',
+		id4:'slid-op'
+		}, addRow);
 	$('button#rm-optn').click({id:'#tab-optn'}, removeRow);
 
 	/* Others */
@@ -164,9 +180,9 @@ $(function() {
 	/* Submission */
 	$('form').submit(function() {
 		//$('#result').text(JSON.stringify(flattenObject(resultDict)));
-        $('#time').text('');
-        $('#spinner').addClass('spinner').append('<div>Loading</div>');
-        $('#resultTable').empty();
+		$('#time').text('');
+		$('#spinner').addClass('spinner').append('<div>Loading</div>');
+		$('#resultTable').empty();
 		$.ajax({
 			url: urlAPI + '/search/' + JSON.stringify(flattenObject(resultDict)),
 			dataType: 'json',
