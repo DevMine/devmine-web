@@ -4,8 +4,8 @@ var paradigms = [];
 var others = [];
 
 $(function() {
-	var i = 1;
-	var resultDict = {0:{Reputation:5}};
+	var i = 2;
+	var resultDict = {0:{Reputation:5},1:{Followers:5}};
 	var urlAPI = "http://localhost:8080";
 
 	$.ajax({
@@ -13,15 +13,11 @@ $(function() {
 		dataType: "json",
 		async: false,
 		success: function(data) {
-			$.each(data['Languages'], function(i, v) {
-				languages.push({id: v.name, tag: v.name});
-			});
-			// $.each(data['Paradigms'], function(i, v) {
-			// 	paradigms.push({id: v.name, tag: v.name});
-			// });
-			// $.each(data['Others'], function(i, v) {
-			// 	others.push({id: v.name, tag: v.name});
-			// });
+			if (data['Languages'] !== undefined) {
+				$.each(data['Languages'], function(i, v) {
+					languages.push({id: v.name, tag: v.name});
+				});
+			}
 		}
 	});
 
@@ -140,41 +136,9 @@ $(function() {
 		id4:'slid-ln'
 		}, addRow);
 	$('button#rm-lang').click({id:'#tab-lang'}, removeRow);
-	
-	// /* Paradigms */
-	// $("#drop-pdgm-select").select2({
-	// 	placeholder: "Select a Paradigm",
-	// 	data: {results: paradigms, text: 'tag' },
-	// 	formatSelection: format,
-	// 	formatResult: format,	    
-	// 	allowClear: true
-	// });
-
-	// $('button#add-pdgm').click({
-	// 	id1:'#drop-pdgm-select',
-	// 	id2:'#slid-pm',
-	// 	id3:'#tab-pdgm',
-	// 	id4:'slid-pm'
-	// 	}, addRow);
-	// $('button#rm-pdgm').click({id:'#tab-pdgm'}, removeRow);
-
-	// /* Options */
-	// $("#drop-optn-select").select2({
-	// 	placeholder: "Select an Option",
-	// 	data: {results: others, text: 'tag' },
-	// 	formatSelection: format,
-	// 	formatResult: format,
-	// 	allowClear: true
-	// });
-	// $('button#add-optn').click({
-	// 	id1:'#drop-optn-select',
-	// 	id2:'#slid-op',
-	// 	id3:'#tab-optn',
-	// 	id4:'slid-op'
-	// 	}, addRow);
-	// $('button#rm-optn').click({id:'#tab-optn'}, removeRow);
 
 	/* Others */
+	$('#slid-ot1').slider().on('slideStop', makeSliderHandler(1, 'Followers'));
 	$('#slid-ot0').slider().on('slideStop', makeSliderHandler(0, 'Reputation'));
 
 	/* Submission */
