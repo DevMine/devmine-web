@@ -13,15 +13,21 @@ $(function() {
 		dataType: "json",
 		async: false,
 		success: function(data) {
-			$.each(data['Languages'], function(i, v) {
-				languages.push({id: v.name, tag: v.name});
-			});
-			$.each(data['Paradigms'], function(i, v) {
-				paradigms.push({id: v.name, tag: v.name});
-			});
-			$.each(data['Others'], function(i, v) {
-				others.push({id: v.name, tag: v.name});
-			});
+			if (data['Languages'] !== undefined) {
+				$.each(data['Languages'], function(i, v) {
+					languages.push({id: v.name, tag: v.name});
+				});
+			}
+			if (data['Paradigms'] !== undefined) {
+				$.each(data['Paradigms'], function(i, v) {
+					paradigms.push({id: v.name, tag: v.name});
+				});
+			}
+			if (data['Others'] !== undefined) {
+				$.each(data['Others'], function(i, v) {
+					others.push({id: v.name, tag: v.name});
+				});
+			}
 		}
 	});
 
