@@ -6,7 +6,7 @@ var others = [];
 $(function() {
 	var i = 2;
 	var resultDict = {0:{Reputation:5},1:{Followers:5}};
-	var urlAPI = "http://localhost:8080";
+	var urlAPI = "http://api-devmine.wlabs.ch:8080";
 
 	$.ajax({
 		url: urlAPI + "/features/by_category",
